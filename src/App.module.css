@@ -1,0 +1,42 @@
+.conteiner{
+    background: #838386;
+
+    min-height: 100vh;
+}
+
+.conteiner p{
+    text-align: center;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+
+    margin: 1.5rem auto;
+}
+
+.header input{
+    width: 50%;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 8px;
+    border: none;
+    
+    outline: none;
+}
+
+.header button{
+    padding: 4px 6px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+
+    background: #373131;
+    color: #fff;
+}
+
+.header button:hover{
+    /* transform: scale(1.1); */
+    background: rgba(51, 51, 51, 0.879);
+}
