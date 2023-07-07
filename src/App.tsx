@@ -34,7 +34,7 @@ export function App() {
 
       <main>
         {names.map(e => (
-          <Card key={e.id} name={e.name} id={e.id} onDelete={handleDeleteColection} />
+          <Card key={e.id} names={e.name} id={e.id} onDelete={handleDeleteColection} />
         ))}
       </main>
 

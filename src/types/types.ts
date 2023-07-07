@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react"
 
 export type NamesProps = {
     id: number,
@@ -6,7 +5,13 @@ export type NamesProps = {
 }
 
 export type CardProps = {
-    name: string,
+    names: string,
     onDelete: (id: number) => void,
     id: number,
+}
+
+export type ObjetosProps = {
+    id: number,
+    name: string,
+    avatar: string,
 }

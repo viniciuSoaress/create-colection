@@ -33,7 +33,7 @@
 }
 
 .main{
-    background-color: red;
+    /* background-color: red; */
     width: 96%;
     flex: 1;
 
@@ -46,8 +46,25 @@
     padding: 2px ;
 }
 
+.mainConteiner{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+
+    flex: 1, 1, 300px;
+}
+
 .main img{
-    height: 60px;
+    width: 60px;
+    /* height: 60px; */
+    margin: 10px auto;
 
     border-radius: 8px;
+}
+
+.delete{
+    width: 14px;
+    padding-right: 10px;
 }
