@@ -54,17 +54,33 @@
     width: 70px;
 
     flex: 1, 1, 300px;
+
+    position: relative;
 }
 
+.mainConteiner button{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    border-radius: 50px;
+    border: 1px solid;
+
+    padding: 2px;
+
+    cursor: pointer;
+    background: rgba(96, 93, 93, 0.414);
+}
 .main img{
     width: 60px;
-    /* height: 60px; */
+    height: 60px;
     margin: 10px auto;
+
 
     border-radius: 8px;
 }
 
 .delete{
-    width: 14px;
-    padding-right: 10px;
+    width: 44px;
+    margin-left: 86%;
 }
