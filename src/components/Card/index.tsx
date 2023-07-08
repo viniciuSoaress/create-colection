@@ -16,30 +16,42 @@ export function Card({ names, onDelete, id }: CardProps) {
     return (
         <section className={S.card}>
 
+                {
+                    isVisible && ( <Modal
+                        isVisible={isVisible}
+                        item={item}
+                        setIsVisible={setIsVisible}
+                        handleitem={handleitem}
+                        handleAddItem={handleAddItem}
+                    /> )
+                }
             <header className={S.header}>
 
                 <strong>{names}</strong>
 
-                <Modal
-                    isVisible={isVisible}
-                    item={item}
-                    setIsVisible={setIsVisible}
-                    handleitem={handleitem}
-                    handleAddItem={handleAddItem}
-                />
+
+                <button onClick={() => setIsVisible(true)}>
+                    New Item
+                </button>
+
+
             </header>
 
             <main className={S.main}>
 
                 {objetos?.map(e => (
                     <div className={S.mainConteiner} key={e.id}>
-                        <img src={e.avatar} alt={e.name} />
+                        <img
+                            src={e.avatar}
+                            alt={e.name}
+                        />
                         {' - '}
                         {e.name}
+                        {' - '}
                         <button
                             onClick={() => handleDeleteItem(e.id)}
                         >
-                            x
+                            apagar
                         </button>
                     </div>
                 ))}
@@ -49,7 +61,7 @@ export function Card({ names, onDelete, id }: CardProps) {
 
             <button className={S.delete} onClick={() =>
                 onDelete(id)}>
-                delete
+                X
             </button>
 
         </section>

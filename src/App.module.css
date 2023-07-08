@@ -1,29 +1,36 @@
 .conteiner{
-    background: #838386;
+    background: #ffffff;
 
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .conteiner p{
     text-align: center;
+    font-weight: bold;
 }
 
 .header{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 80vw;
 
     margin: 1.5rem auto;
+
 }
 
 .header input{
-    width: 50%;
+    /* width: 50%; */
     height: 30px;
     padding-left: 10px;
     border-radius: 8px;
     border: none;
     
     outline: none;
+
+    box-shadow: 1px 1px 4px #27242a;
 }
 
 .header button{
@@ -34,16 +41,19 @@
 
     background: #373131;
     color: #fff;
+    padding: 6px;
 }
 
 .header button:hover{
-    /* transform: scale(1.1); */
     background: rgba(51, 51, 51, 0.879);
+}
+
+main{
+    flex: 1;
 }
 
 footer{
     width: 100vw;
-    position: absolute;
+    margin: 10px 0;
     bottom: 10px;
-    /* background-color: aqua; */
 }

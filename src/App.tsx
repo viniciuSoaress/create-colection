@@ -5,7 +5,13 @@ import { Card } from './components'
 
 export function App() {
 
-  const { names, handleName, handleAddColection, name, handleDeleteColection } = useName()
+  const {
+    names,
+    handleName,
+    handleAddColection,
+    name,
+    handleDeleteColection
+  } = useName()
 
 
 
@@ -13,7 +19,9 @@ export function App() {
 
     <div className={S.conteiner}>
 
-      <p>Crie coleções de suas series, filmes, animes e ate livro. e com imagen.</p>
+      <p>
+        Crie coleções de suas series, filmes, animes e ate livro. e com imagen.
+      </p>
 
       <header className={S.header}>
 
@@ -34,12 +42,17 @@ export function App() {
 
       <main>
         {names.map(e => (
-          <Card key={e.id} names={e.name} id={e.id} onDelete={handleDeleteColection} />
+          <Card
+            key={e.id}
+            names={e.name}
+            id={e.id}
+            onDelete={handleDeleteColection}
+          />
         ))}
       </main>
 
       <footer>
-        <p>apliccation of studes</p>
+        <p>Application of studies</p>
       </footer>
 
     </div>
