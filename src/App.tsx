@@ -20,7 +20,7 @@ export function App() {
     <div className={S.conteiner}>
 
       <p>
-        Crie coleções de suas series, filmes, animes e ate livro. e com imagen.
+        Adicionen seus filmes, animes, series, livros ou sues personagens favoritos
       </p>
 
       <header className={S.header}>

@@ -18,10 +18,10 @@ export function useName() {
 
     function handleAddColection() {
         setId(id => id + 1)
-        setNames([
+        name.length >= 4 ? setNames([
             ...names,
             { name: name, id: id + 1 }
-        ])
+        ]) : alert('coleção tem que ter 4 ou mais caracteres')
         setName('');
     }
 

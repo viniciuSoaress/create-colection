@@ -36,7 +36,7 @@ export function Modal({ isVisible, item, setIsVisible, handleitem, handleAddItem
                 <button
                     onClick={() => {
                         setIsVisible(false)
-                        handleAddItem()
+                        item.avatar.length > 10 && item.name.length >= 4 ? handleAddItem() : alert('preenxar os campos corretamente')
                     }}
                 >
                     save

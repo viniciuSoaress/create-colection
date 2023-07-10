@@ -45,9 +45,9 @@ export function Card({ names, onDelete, id }: CardProps) {
                             src={e.avatar}
                             alt={e.name}
                         />
-                        {' - '}
-                        {e.name}
-                        {' - '}
+                        <small>
+                        {'- ' + e.name +' -'}
+                        </small>
                         <button
                             onClick={() => handleDeleteItem(e.id)}
                         >

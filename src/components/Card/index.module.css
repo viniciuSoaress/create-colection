@@ -21,12 +21,12 @@
     align-items: center;
     justify-content: space-between;
 
-    padding: 6px 16px;
+    padding: 4px 16px;
     border-bottom: 1px solid #e2e2e4;
 }
 
 .header button {
-    padding: 2.5px;
+    padding: 2px;
     border: 1px solid #e2e2e4;
     border-radius: 6px;
 
