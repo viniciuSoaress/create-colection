@@ -2,9 +2,9 @@
     width: 80vw;
     max-width: 80%;
     height: 160px;
-    background: #8cc5d4;
+    background: #2a2a2a;
 
-    color: #fff;
+    color: #e2e2e4;
 
     border-radius: 10px;
     margin: 10px auto;
@@ -13,7 +13,7 @@
     flex-direction: column;
 
     position: relative;
-    box-shadow: 1px 1px 4px #212348;
+    box-shadow: 1px 1px 4px #7a7a7a;
 }
 
 .header {
@@ -31,8 +31,11 @@
     border-radius: 6px;
 
     cursor: pointer;
-    background: #727280;
-    color: #fff;
+    background: #2a2a2a;
+    color: #e2e2e4;
+
+    font-size: 12px;
+    font-weight: bolder;
 }
 
 .main {
@@ -52,15 +55,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     width: 70px;
 
     flex: 1, 1, 300px;
 
-    position: relative;
+    height: 90%;
+    padding: 10px 0 0;
+
+    /* position: relative; */
 }
 
 .mainConteiner button {
-    margin-top: 8px;
+    /* margin-top: 4px; */
     font-size: 10px;
     font-weight: 600;
 
@@ -78,9 +85,9 @@
     transform: scale(1.1);
 }
 
-.main img {
-    height: 70px;
-    margin: 4px auto;
+.mainConteiner img {
+    height: 66px;
+    /* margin: 4px auto; */
     object-fit: contain;
 
 
@@ -88,7 +95,7 @@
     border: none;
 }
 
-.main img:hover{
+.mainConteiner img:hover{
     cursor: default;
     transform: scale(1.1);
 }
@@ -98,11 +105,13 @@
     padding: 2px;
     border: none;
     position: absolute;
-    right: 0;
-    bottom: 1px;
+    right: 2px;
+    bottom: 2px;
     font-weight: bold;
+    font-size: 10px;
 
-    background: #ebedef;
+    background: #151516;
+    color: #e2e2e4;
 
 
 }

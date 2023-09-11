@@ -20,9 +20,9 @@ export type ObjetosProps = {
 export type ModalProps = {
     isVisible: boolean,
     item: ObjetosProps,
-    setIsVisible: Dispatch<SetStateAction<boolean>>,
-    handleitem: (e: ChangeEvent<HTMLInputElement>) => void,
-    handleAddItem: () => void,
+    onSetIsVisible: Dispatch<SetStateAction<boolean>>,
+    onHandleitem: (e: ChangeEvent<HTMLInputElement>) => void,
+    onHandleAddItem: () => void,
 
 
 }

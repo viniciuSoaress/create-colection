@@ -17,45 +17,48 @@ export function App() {
 
   return (
 
-    <div className={S.conteiner}>
+    <div className={S.mainConteiner}>
 
-      <p>
-        Adicionen seus filmes, animes, series, livros ou sues personagens favoritos
-      </p>
+      <div className={S.conteiner}>
 
-      <header className={S.header}>
+        <h2 className={S.title}>Crie Suas Coleções</h2>
 
-        <input
-          type="text"
-          placeholder="name colection"
-          onChange={handleName}
-          value={name}
-        />
+        <header className={S.header}>
 
-        <button
-          onClick={handleAddColection}
-        >
-          New Colection
-        </button>
-
-      </header>
-
-      <main>
-        {names.map(e => (
-          <Card
-            key={e.id}
-            names={e.name}
-            id={e.id}
-            onDelete={handleDeleteColection}
+          <input
+            className={S.input}
+            type="text"
+            placeholder="name colection"
+            onChange={handleName}
+            value={name}
           />
-        ))}
-      </main>
 
-      <footer>
-        <p>Application of studies</p>
-      </footer>
+          <button
+            onClick={handleAddColection}
+            className={S.button}
+          >
+            New Colection
+          </button>
+
+        </header>
+
+        <main className={S.main}>
+          {names.map(e => (
+            <Card
+              key={e.id}
+              names={e.name}
+              id={e.id}
+              onDelete={handleDeleteColection}
+            />
+          ))}
+        </main>
+
+        
+      </div>
 
     </div>
+
+
 
   )
 }

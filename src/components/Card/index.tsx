@@ -9,22 +9,30 @@ import S from './index.module.css'
 
 export function Card({ names, onDelete, id }: CardProps) {
 
-    const { isVisible, setIsVisible, handleitem, objetos, item, handleAddItem, handleDeleteItem } = useValue();
+    const {
+        isVisible,
+        setIsVisible,
+        handleitem,
+        objetos,
+        item,
+        handleAddItem,
+        handleDeleteItem
+    } = useValue();
 
 
 
     return (
         <section className={S.card}>
 
-                {
-                    isVisible && ( <Modal
-                        isVisible={isVisible}
-                        item={item}
-                        setIsVisible={setIsVisible}
-                        handleitem={handleitem}
-                        handleAddItem={handleAddItem}
-                    /> )
-                }
+            {
+                isVisible && (<Modal
+                    isVisible={isVisible}
+                    item={item}
+                    onSetIsVisible={setIsVisible}
+                    onHandleAddItem={handleAddItem}
+                    onHandleitem={handleitem}
+                />)
+            }
             <header className={S.header}>
 
                 <strong>{names}</strong>
@@ -46,7 +54,7 @@ export function Card({ names, onDelete, id }: CardProps) {
                             alt={e.name}
                         />
                         <small>
-                        {'- ' + e.name +' -'}
+                            {e.name}
                         </small>
                         <button
                             onClick={() => handleDeleteItem(e.id)}

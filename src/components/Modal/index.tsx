@@ -3,7 +3,7 @@ import { ModalProps } from "../../types"
 import S from './index.module.css'
 
 
-export function Modal({ isVisible, item, setIsVisible, handleitem, handleAddItem }: ModalProps) {
+export function Modal({ isVisible, item, onSetIsVisible, onHandleitem, onHandleAddItem }: ModalProps) {
 
     if (isVisible) {
         return (
@@ -17,7 +17,7 @@ export function Modal({ isVisible, item, setIsVisible, handleitem, handleAddItem
 
                         name="avatar"
                         placeholder="link da imagen"
-                        onChange={handleitem}
+                        onChange={onHandleitem}
                         value={item.avatar}
                     />
                 </label>
@@ -29,21 +29,21 @@ export function Modal({ isVisible, item, setIsVisible, handleitem, handleAddItem
                         placeholder="nome da coleção"
                         id="name"
                         name="name"
-                        onChange={handleitem}
+                        onChange={onHandleitem}
                         value={item.name}
                     />
                 </label>
                 <button
                     onClick={() => {
-                        setIsVisible(false)
-                        item.avatar.length > 10 && item.name.length >= 4 ? handleAddItem() : alert('preenxar os campos corretamente')
+                        onSetIsVisible(false)
+                        item.avatar.length > 10 && item.name.length >= 4 ? onHandleAddItem() : alert('preenxar os campos corretamente')
                     }}
                 >
                     save
                 </button>
                 <button
                     onClick={() => {
-                        setIsVisible(false)
+                        onSetIsVisible(false)
                     }}
                 >
                     canselar
@@ -54,7 +54,7 @@ export function Modal({ isVisible, item, setIsVisible, handleitem, handleAddItem
     return (
         <div>
             <button
-                onClick={() => setIsVisible(true)}
+                onClick={() => onSetIsVisible(true)}
             >
                 addc
             </button>

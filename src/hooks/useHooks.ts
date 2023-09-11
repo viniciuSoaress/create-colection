@@ -1,7 +1,10 @@
+import { z } from 'zod'
 import { ChangeEvent, useState } from "react";
 
 
 import { NamesProps, ObjetosProps } from "../types";
+
+const schema = z.string().min(4)
 
 
 export function useName() {
@@ -18,10 +21,16 @@ export function useName() {
 
     function handleAddColection() {
         setId(id => id + 1)
-        name.length >= 4 ? setNames([
-            ...names,
-            { name: name, id: id + 1 }
-        ]) : alert('coleção tem que ter 4 ou mais caracteres')
+        const result = schema.safeParse(name)
+
+        if(result.success){
+            setNames([
+                ...names,
+                { name: name, id: id + 1 }
+            ])
+        } else{
+            alert('coleção tem que ter 4 ou mais caracteres')
+        }
         setName('');
     }
 
