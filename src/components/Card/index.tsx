@@ -12,10 +12,7 @@ export function Card({ names, onDelete, id }: CardProps) {
     const {
         isVisible,
         setIsVisible,
-        // handleitem,
         objetos,
-        // item,
-        // handleAddItem,
         handleDeleteItem,
         register,
         errors,
@@ -35,10 +32,7 @@ export function Card({ names, onDelete, id }: CardProps) {
                     register={register}
                     handleSubmit={handleSubmit}
                     formSubmit={formSubmit}
-                    // item={item}
                     onSetIsVisible={setIsVisible}
-                    // onHandleAddItem={handleAddItem}
-                    // onHandleitem={handleitem}
                 />)
             }
             <header className={S.header}>

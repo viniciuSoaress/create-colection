@@ -9,7 +9,9 @@ export function App() {
     names,
     handleDeleteColection,
     errors,
-    formSubmit, handleSubmit, register,
+    formSubmit,
+    handleSubmit,
+    register,
   } = useName()
 
 

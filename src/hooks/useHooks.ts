@@ -6,7 +6,6 @@ import { useState } from "react";
 
 import { NamesProps, ObjetosProps } from "../types";
 
-// const schema = z.string().min(4)
 
 const schemaO = z.object({
     name: z.string().min(4, { message: 'nome muito curto' })
@@ -31,7 +30,6 @@ export function useName() {
     })
 
     function formSubmit(data: NameP) {
-        // console.log(data)
         setId(id => id + 1)
 
         setNames([
@@ -43,30 +41,6 @@ export function useName() {
     }
 
 
-
-
-
-    // const [name, setName] = useState('');
-
-
-    // function handleName(e: ChangeEvent<HTMLInputElement>) {
-    //     setName(e.target.value)
-    // }
-
-    // function handleAddColection() {
-    //     setId(id => id + 1)
-    //     const result = schema.safeParse(name)
-
-    //     if (result.success) {
-    //         setNames([
-    //             ...names,
-    //             { name: name, id: id + 1 }
-    //         ])
-    //     } else {
-    //         alert('coleção tem que ter 4 ou mais caracteres')
-    //     }
-    //     setName('');
-    // }
 
     function handleDeleteColection(id: number) {
         setNames(names.filter(name => {
@@ -101,7 +75,6 @@ export function useValue() {
 
     const { id, setId } = useName();
 
-    // const [item, setItem] = useState<ObjetosProps>({} as ObjetosProps)
 
     const [objetos, setObjetos] = useState<ObjetosProps[]>([]);
 
@@ -116,15 +89,14 @@ export function useValue() {
 
     function formSubmit(data: Objeto) {
         
-        // setId(id => id + 1);
+        setId(id => id + 1);
 
-        // setObjetos([
-        //     ...objetos,
-        //     {avatar: avatar, name: name, id: id + 1}
-        // ])
+        setObjetos([
+            ...objetos,
+            {avatar: data.avatar, name: data.name, id: id + 1}
+        ])
 
-        // console.log(objetos)
-        handleAddItem(data)
+        console.log(objetos)
     }
 
 
@@ -136,36 +108,13 @@ export function useValue() {
 
 
 
-    // function handleitem(e: ChangeEvent<HTMLInputElement>) {
-    //     setItem({
-    //         ...item,
-    //         [e.target.name]: e.target.value,
-    //     })
-    // }
-
-    function handleAddItem(item: Objeto) {
-        setId(id => id + 1);
-        setObjetos([
-            ...objetos,
-            { name: item.name, avatar: item.avatar, id: id + 1 }
-        ]);
-        // setItem({
-        //     ...item,
-        //     avatar: '',
-        //     name: '',
-        // })
-    }
-
     
 
 
     return {
         isVisible,
         setIsVisible,
-        // handleitem,
-        // handleAddItem,
         objetos,
-        // item,
         handleDeleteItem,
         formSubmit,
         handleSubmit,

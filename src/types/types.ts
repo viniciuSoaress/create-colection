@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction } from "react"
 import { FieldErrors, UseFormRegister } from "react-hook-form"
 
 export type NamesProps = {
@@ -33,10 +33,8 @@ export type ModalProps = {
         name: string;
         avatar: string;
     }>
-    // item: ObjetosProps,
     onSetIsVisible: Dispatch<SetStateAction<boolean>>,
-    // onHandleitem: (e: ChangeEvent<HTMLInputElement>) => void,
-    // onHandleAddItem: () => void,
+    
 
 
 

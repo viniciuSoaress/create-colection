@@ -1,5 +1,4 @@
 import { ModalProps } from "../../types"
-import { useValue } from "../../hooks"
 
 import S from './index.module.css'
 
@@ -14,12 +13,7 @@ export function Modal({
 }: ModalProps
 ) {
 
-    // const {
-    //     register,
-    //     formSubmit,
-    //     errors,
-    //     handleSubmit
-    // } = useValue()
+    
 
     if (isVisible) {
         return (
@@ -32,13 +26,11 @@ export function Modal({
                     <input
                         type="text"
                         id="avatar"
-
-                        // name="avatar"
                         placeholder="link da imagen"
                         {...register('avatar')}
-                    // onChange={onHandleitem}
-                    // value={item.avatar}
+                    
                     />
+                    {errors.avatar?.message ? <p>{errors.avatar.message}</p> : ''}
                 </label>
 
                 <label htmlFor="name">
@@ -47,17 +39,12 @@ export function Modal({
                         type="text"
                         placeholder="nome da coleção"
                         id="name"
-                        // name="name"
-                        // onChange={onHandleitem}
-                        // value={item.name}
                         {...register('name')}
                     />
+                    {errors.name?.message ? <p>{errors.name.message}</p> : ''}
+
                 </label>
                 <button
-                    // onClick={() => {
-                    //     onSetIsVisible(false)
-                    //     item.avatar.length > 10 && item.name.length >= 4 ? onHandleAddItem() : alert('preenxar os campos corretamente')
-                    // }}
                     type="submit"
                 >
                     save
@@ -72,13 +59,4 @@ export function Modal({
             </form>
         )
     }
-    // return (
-    //     <div>
-    //         <button
-    //             onClick={() => onSetIsVisible(true)}
-    //         >
-    //             addc
-    //         </button>
-    //     </div>
-    // )
 }
