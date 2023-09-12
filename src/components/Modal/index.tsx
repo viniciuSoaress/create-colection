@@ -1,13 +1,31 @@
 import { ModalProps } from "../../types"
+import { useValue } from "../../hooks"
 
 import S from './index.module.css'
 
 
-export function Modal({ isVisible, item, onSetIsVisible, onHandleitem, onHandleAddItem }: ModalProps) {
+export function Modal({
+    isVisible,
+    onSetIsVisible,
+    errors,
+    formSubmit,
+    handleSubmit,
+    register
+}: ModalProps
+) {
+
+    // const {
+    //     register,
+    //     formSubmit,
+    //     errors,
+    //     handleSubmit
+    // } = useValue()
 
     if (isVisible) {
         return (
-            <div className={S.conteiner}>
+            <form onSubmit={handleSubmit(formSubmit)}
+                className={S.conteiner}
+            >
 
                 <label htmlFor="avatar" >
                     Link da imagen
@@ -15,10 +33,11 @@ export function Modal({ isVisible, item, onSetIsVisible, onHandleitem, onHandleA
                         type="text"
                         id="avatar"
 
-                        name="avatar"
+                        // name="avatar"
                         placeholder="link da imagen"
-                        onChange={onHandleitem}
-                        value={item.avatar}
+                        {...register('avatar')}
+                    // onChange={onHandleitem}
+                    // value={item.avatar}
                     />
                 </label>
 
@@ -28,16 +47,18 @@ export function Modal({ isVisible, item, onSetIsVisible, onHandleitem, onHandleA
                         type="text"
                         placeholder="nome da coleção"
                         id="name"
-                        name="name"
-                        onChange={onHandleitem}
-                        value={item.name}
+                        // name="name"
+                        // onChange={onHandleitem}
+                        // value={item.name}
+                        {...register('name')}
                     />
                 </label>
                 <button
-                    onClick={() => {
-                        onSetIsVisible(false)
-                        item.avatar.length > 10 && item.name.length >= 4 ? onHandleAddItem() : alert('preenxar os campos corretamente')
-                    }}
+                    // onClick={() => {
+                    //     onSetIsVisible(false)
+                    //     item.avatar.length > 10 && item.name.length >= 4 ? onHandleAddItem() : alert('preenxar os campos corretamente')
+                    // }}
+                    type="submit"
                 >
                     save
                 </button>
@@ -48,16 +69,16 @@ export function Modal({ isVisible, item, onSetIsVisible, onHandleitem, onHandleA
                 >
                     canselar
                 </button>
-            </div>
+            </form>
         )
     }
-    return (
-        <div>
-            <button
-                onClick={() => onSetIsVisible(true)}
-            >
-                addc
-            </button>
-        </div>
-    )
+    // return (
+    //     <div>
+    //         <button
+    //             onClick={() => onSetIsVisible(true)}
+    //         >
+    //             addc
+    //         </button>
+    //     </div>
+    // )
 }

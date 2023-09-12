@@ -7,10 +7,9 @@ export function App() {
 
   const {
     names,
-    handleName,
-    handleAddColection,
-    name,
-    handleDeleteColection
+    handleDeleteColection,
+    errors,
+    formSubmit, handleSubmit, register,
   } = useName()
 
 
@@ -24,22 +23,28 @@ export function App() {
         <h2 className={S.title}>Crie Suas Coleções</h2>
 
         <header className={S.header}>
-
-          <input
-            className={S.input}
-            type="text"
-            placeholder="name colection"
-            onChange={handleName}
-            value={name}
-          />
-
-          <button
-            onClick={handleAddColection}
-            className={S.button}
+          <form
+            onSubmit={handleSubmit(formSubmit)}
+            className={S.form}
           >
-            New Colection
-          </button>
 
+
+            <input
+              className={S.input}
+              type="text"
+              placeholder="name colection"
+              {...register('name')}
+            />
+
+            <button
+              className={S.button}
+              type='submit'
+            >
+              New Colection
+            </button>
+
+            {errors.name?.message ? <p className={S.error}>{errors.name?.message}</p> : ''}
+          </form>
         </header>
 
         <main className={S.main}>
@@ -53,7 +58,7 @@ export function App() {
           ))}
         </main>
 
-        
+
       </div>
 
     </div>

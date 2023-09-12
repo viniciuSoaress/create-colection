@@ -12,11 +12,15 @@ export function Card({ names, onDelete, id }: CardProps) {
     const {
         isVisible,
         setIsVisible,
-        handleitem,
+        // handleitem,
         objetos,
-        item,
-        handleAddItem,
-        handleDeleteItem
+        // item,
+        // handleAddItem,
+        handleDeleteItem,
+        register,
+        errors,
+        formSubmit, 
+        handleSubmit
     } = useValue();
 
 
@@ -27,10 +31,14 @@ export function Card({ names, onDelete, id }: CardProps) {
             {
                 isVisible && (<Modal
                     isVisible={isVisible}
-                    item={item}
+                    errors={errors}
+                    register={register}
+                    handleSubmit={handleSubmit}
+                    formSubmit={formSubmit}
+                    // item={item}
                     onSetIsVisible={setIsVisible}
-                    onHandleAddItem={handleAddItem}
-                    onHandleitem={handleitem}
+                    // onHandleAddItem={handleAddItem}
+                    // onHandleitem={handleitem}
                 />)
             }
             <header className={S.header}>

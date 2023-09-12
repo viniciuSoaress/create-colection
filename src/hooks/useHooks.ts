@@ -1,38 +1,72 @@
 import { z } from 'zod'
-import { ChangeEvent, useState } from "react";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from "react";
 
 
 import { NamesProps, ObjetosProps } from "../types";
 
-const schema = z.string().min(4)
+// const schema = z.string().min(4)
+
+const schemaO = z.object({
+    name: z.string().min(4, { message: 'nome muito curto' })
+})
+
+type NameP = z.infer<typeof schemaO>
 
 
 export function useName() {
 
     const [names, setNames] = useState<NamesProps[]>([]);
 
-    const [name, setName] = useState('');
-
     const [id, setId] = useState(0);
 
-    function handleName(e: ChangeEvent<HTMLInputElement>) {
-        setName(e.target.value)
-    }
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<NameP>({
+        mode: 'all',
+        resolver: zodResolver(schemaO)
+    })
 
-    function handleAddColection() {
+    function formSubmit(data: NameP) {
+        // console.log(data)
         setId(id => id + 1)
-        const result = schema.safeParse(name)
 
-        if(result.success){
-            setNames([
-                ...names,
-                { name: name, id: id + 1 }
-            ])
-        } else{
-            alert('coleção tem que ter 4 ou mais caracteres')
-        }
-        setName('');
+        setNames([
+            ...names,
+            { name: data.name, id: id + 1 }
+        ])
+
+
     }
+
+
+
+
+
+    // const [name, setName] = useState('');
+
+
+    // function handleName(e: ChangeEvent<HTMLInputElement>) {
+    //     setName(e.target.value)
+    // }
+
+    // function handleAddColection() {
+    //     setId(id => id + 1)
+    //     const result = schema.safeParse(name)
+
+    //     if (result.success) {
+    //         setNames([
+    //             ...names,
+    //             { name: name, id: id + 1 }
+    //         ])
+    //     } else {
+    //         alert('coleção tem que ter 4 ou mais caracteres')
+    //     }
+    //     setName('');
+    // }
 
     function handleDeleteColection(id: number) {
         setNames(names.filter(name => {
@@ -42,17 +76,24 @@ export function useName() {
 
     return {
         names,
-        handleName,
-        handleAddColection,
-        name,
         handleDeleteColection,
-        setName,
         id,
-        setId
+        setId,
+        formSubmit,
+        register,
+        errors,
+        handleSubmit
     }
 
 }
 
+
+const schema = z.object({
+    name: z.string().min(4, { message: 'error name' }),
+    avatar: z.string().min(10, { message: 'error avatar' })
+})
+
+type Objeto = z.infer<typeof schema>
 
 export function useValue() {
 
@@ -60,29 +101,32 @@ export function useValue() {
 
     const { id, setId } = useName();
 
-    const [item, setItem] = useState<ObjetosProps>({} as ObjetosProps)
+    // const [item, setItem] = useState<ObjetosProps>({} as ObjetosProps)
 
     const [objetos, setObjetos] = useState<ObjetosProps[]>([]);
 
-    function handleitem(e: ChangeEvent<HTMLInputElement>) {
-        setItem({
-            ...item,
-            [e.target.name]: e.target.value,
-        })
+    const {
+        formState: { errors },
+        handleSubmit,
+        register,
+    } = useForm<Objeto>({
+        mode: 'onBlur',
+        resolver: zodResolver(schema)
+    })
+
+    function formSubmit(data: Objeto) {
+        
+        // setId(id => id + 1);
+
+        // setObjetos([
+        //     ...objetos,
+        //     {avatar: avatar, name: name, id: id + 1}
+        // ])
+
+        // console.log(objetos)
+        handleAddItem(data)
     }
 
-    function handleAddItem() {
-        setId(id => id + 1);
-        setObjetos([
-            ...objetos,
-            { name: item.name, avatar: item.avatar, id: id + 1 }
-        ]);
-        setItem({
-            ...item,
-            avatar: '',
-            name: '',
-        })
-    }
 
     function handleDeleteItem(id: number) {
         setObjetos(objetos.filter(obj => {
@@ -91,13 +135,41 @@ export function useValue() {
     }
 
 
+
+    // function handleitem(e: ChangeEvent<HTMLInputElement>) {
+    //     setItem({
+    //         ...item,
+    //         [e.target.name]: e.target.value,
+    //     })
+    // }
+
+    function handleAddItem(item: Objeto) {
+        setId(id => id + 1);
+        setObjetos([
+            ...objetos,
+            { name: item.name, avatar: item.avatar, id: id + 1 }
+        ]);
+        // setItem({
+        //     ...item,
+        //     avatar: '',
+        //     name: '',
+        // })
+    }
+
+    
+
+
     return {
         isVisible,
         setIsVisible,
-        handleitem,
-        handleAddItem,
+        // handleitem,
+        // handleAddItem,
         objetos,
-        item,
+        // item,
         handleDeleteItem,
+        formSubmit,
+        handleSubmit,
+        register,
+        errors
     }
 }
