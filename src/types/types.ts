@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
-import { FieldErrors, UseFormRegister } from "react-hook-form"
+import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form"
 
 export type NamesProps = {
     id: number,
@@ -24,7 +24,10 @@ export type ModalProps = {
         name: string;
         avatar: string;
     }>,
-    handleSubmit: any,
+    handleSubmit: UseFormHandleSubmit<{
+        name: string;
+        avatar: string;
+    }, undefined>,
     formSubmit: (data: {
         name: string;
         avatar: string;
@@ -34,8 +37,4 @@ export type ModalProps = {
         avatar: string;
     }>
     onSetIsVisible: Dispatch<SetStateAction<boolean>>,
-    
-
-
-
 }

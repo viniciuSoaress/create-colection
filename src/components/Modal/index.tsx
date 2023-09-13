@@ -13,7 +13,7 @@ export function Modal({
 }: ModalProps
 ) {
 
-    
+
 
     if (isVisible) {
         return (
@@ -28,9 +28,9 @@ export function Modal({
                         id="avatar"
                         placeholder="link da imagen"
                         {...register('avatar')}
-                    
+
                     />
-                    {errors.avatar?.message ? <p>{errors.avatar.message}</p> : ''}
+                    {errors.avatar?.message ? <p className={S.pError}>{errors.avatar.message}</p> : ''}
                 </label>
 
                 <label htmlFor="name">
@@ -41,21 +41,24 @@ export function Modal({
                         id="name"
                         {...register('name')}
                     />
-                    {errors.name?.message ? <p>{errors.name.message}</p> : ''}
+                    {errors.name?.message ? <p className={S.pError}>{errors.name.message}</p> : ''}
 
                 </label>
-                <button
-                    type="submit"
-                >
-                    save
-                </button>
-                <button
-                    onClick={() => {
-                        onSetIsVisible(false)
-                    }}
-                >
-                    canselar
-                </button>
+                <div className={S.buttonCo}>
+
+                    <button
+                        type="submit"
+                    >
+                        save
+                    </button>
+                    <button
+                        onClick={() => {
+                            onSetIsVisible(false)
+                        }}
+                    >
+                        canselar
+                    </button>
+                </div>
             </form>
         )
     }

@@ -63,11 +63,9 @@
     height: 90%;
     padding: 10px 0 0;
 
-    /* position: relative; */
 }
 
 .mainConteiner button {
-    /* margin-top: 4px; */
     font-size: 10px;
     font-weight: 600;
 
@@ -87,7 +85,6 @@
 
 .mainConteiner img {
     height: 66px;
-    /* margin: 4px auto; */
     object-fit: contain;
 
 

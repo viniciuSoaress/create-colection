@@ -2,64 +2,9 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from "react";
+import { ObjetosProps } from '../types';
+import { useName } from '.';
 
-
-import { NamesProps, ObjetosProps } from "../types";
-
-
-const schemaO = z.object({
-    name: z.string().min(4, { message: 'nome muito curto' })
-})
-
-type NameP = z.infer<typeof schemaO>
-
-
-export function useName() {
-
-    const [names, setNames] = useState<NamesProps[]>([]);
-
-    const [id, setId] = useState(0);
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm<NameP>({
-        mode: 'all',
-        resolver: zodResolver(schemaO)
-    })
-
-    function formSubmit(data: NameP) {
-        setId(id => id + 1)
-
-        setNames([
-            ...names,
-            { name: data.name, id: id + 1 }
-        ])
-
-
-    }
-
-
-
-    function handleDeleteColection(id: number) {
-        setNames(names.filter(name => {
-            return name.id !== id
-        }))
-    }
-
-    return {
-        names,
-        handleDeleteColection,
-        id,
-        setId,
-        formSubmit,
-        register,
-        errors,
-        handleSubmit
-    }
-
-}
 
 
 const schema = z.object({
@@ -82,21 +27,22 @@ export function useValue() {
         formState: { errors },
         handleSubmit,
         register,
+        reset,
     } = useForm<Objeto>({
         mode: 'onBlur',
         resolver: zodResolver(schema)
     })
 
     function formSubmit(data: Objeto) {
-        
+
         setId(id => id + 1);
 
         setObjetos([
             ...objetos,
-            {avatar: data.avatar, name: data.name, id: id + 1}
+            { avatar: data.avatar, name: data.name, id: id + 1 }
         ])
 
-        console.log(objetos)
+        reset()
     }
 
 
@@ -108,7 +54,7 @@ export function useValue() {
 
 
 
-    
+
 
 
     return {

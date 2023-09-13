@@ -5,6 +5,8 @@ import { Card } from './components'
 
 export function App() {
 
+ 
+
   const {
     names,
     handleDeleteColection,
@@ -13,6 +15,8 @@ export function App() {
     handleSubmit,
     register,
   } = useName()
+
+
 
 
 
@@ -60,14 +64,13 @@ export function App() {
           ))}
         </main>
 
+      <footer>
+        
+      </footer>
 
       </div>
 
     </div>
 
-
-
   )
 }
-
-

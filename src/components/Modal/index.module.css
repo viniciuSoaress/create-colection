@@ -21,7 +21,12 @@
     padding: 6px;
 }
 
-.conteiner button{
+.buttonCo{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttonCo button{
     font-weight: 500;
     width: 40%;
     border-radius: 20px;
@@ -44,4 +49,10 @@
     border-radius: 6px;
     border: none;
     outline: none;
+}
+
+
+
+.pError{
+    font-size: 10px;
 }

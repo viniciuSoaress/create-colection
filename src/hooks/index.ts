@@ -1,1 +1,2 @@
-export * from './useHooks'
+export * from './useName'
+export * from './useObject'
